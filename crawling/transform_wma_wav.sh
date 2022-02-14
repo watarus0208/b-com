@@ -17,9 +17,13 @@ for bird_dir_path in $files; do
           # transform wma to wav
           echo "wmaファイル名: {$wma_file}"
           echo "拡張子: ${wma_file##*.}"
-          if ${wma_file##*.} = "wma" ; then
+          if [ ${wma_file##*.} = "wma" ] ; then
             echo "変換後ファイル名: ${wma_file%.*}.wav"
-            ffmpeg -i $wma_file "${wma_file%.*}.wav"
+            if [ -e ${wma_file%.*}.wav ] ; then
+              echo "already file exists."
+            else
+              ffmpeg -i $wma_file "${wma_file%.*}.wav"
+            fi
           fi
         done
       # no bird barks directory
@@ -28,7 +32,11 @@ for bird_dir_path in $files; do
         echo "wmaファイル名: ${bark_type_dir}"
         echo "拡張子: ${bark_type_dir##*.}"
         echo "変換後ファイル名: ${bark_type_dir%.*}.wav"
-        ffmpeg -i $bark_type_dir "${bark_type_dir%.*}.wav"
+          if [ -e ${bark_type_dir%%.*}.wav ] ; then
+            echo "already file exists."
+          else
+            ffmpeg -i $bark_type_dir "${bark_type_dir%.*}.wav"
+          fi
       fi
     done
   fi
