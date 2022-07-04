@@ -1,1 +1,4 @@
 ./ml-data/models/esc50_*
+
+.ipynb_checkpoints
+./ml-jupyter/.ipynb_checkpoints

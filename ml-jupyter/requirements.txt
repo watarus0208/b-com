@@ -1,9 +1,0 @@
-jupyterlab
-wave
-librosa
-numpy
-pandas
-matplotlib
-IPython
-sklearn
-tensorflow
