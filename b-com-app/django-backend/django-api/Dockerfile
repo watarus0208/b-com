@@ -1,5 +1,5 @@
 FROM python:3.10.0a7-slim-buster
-WORKDIR /usr/src/api
+WORKDIR /usr/src/api/
  
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
